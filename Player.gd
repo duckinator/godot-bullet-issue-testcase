@@ -13,7 +13,12 @@ func _process(delta):
 		call_deferred("queue_free")
 	
 	if Input.is_action_just_pressed("fire"):
-		var bullet = BULLET_SCENE.instance()
-		bullet.global_translate(Vector3(2, 1, 0)) # TODO: Calculate this?
-		add_child(bullet)
-		bullet.fire(Vector3(100, 0, 0))
+		fire_bullet(Vector3(100, 0, 0))
+	elif Input.is_action_just_pressed("fire-alt"):
+		fire_bullet(Vector3(60, 0, 0))
+
+func fire_bullet(impulse):
+	var bullet = BULLET_SCENE.instance()
+	bullet.global_translate(Vector3(2, 1, 0)) # TODO: Calculate this?
+	add_child(bullet)
+	bullet.fire(impulse)
