@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 
-[sub_resource type="Environment" id=5]
+[sub_resource type="Environment" id=1]
 
 background_mode = 0
 background_sky_custom_fov = 0.0
@@ -80,7 +80,7 @@ adjustment_brightness = 1.0
 adjustment_contrast = 1.0
 adjustment_saturation = 1.0
 
-[sub_resource type="CubeMesh" id=1]
+[sub_resource type="CubeMesh" id=2]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector3( 2, 4, 2 )
@@ -88,18 +88,18 @@ subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
 
-[sub_resource type="ConvexPolygonShape" id=2]
+[sub_resource type="ConvexPolygonShape" id=3]
 
 points = PoolVector3Array( -1, 2, 1, 1, 2, -1, 1, 2, 1, -1, 2, -1, -1, -2, 1, 1, -2, -1, 1, -2, 1, -1, -2, -1, 1, 2, 1, -1, 2, -1, 1, 2, -1, -1, 2, 1, 1, -2, 1, -1, -2, -1, 1, -2, -1, -1, -2, 1, 1, 2, 1, -1, -2, 1, -1, 2, 1, 1, -2, 1, 1, 2, -1, -1, -2, -1, -1, 2, -1, 1, -2, -1 )
 
-[sub_resource type="PlaneMesh" id=3]
+[sub_resource type="PlaneMesh" id=4]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector2( 50, 50 )
 subdivide_width = 0
 subdivide_depth = 0
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=5]
 
 render_priority = 0
 flags_transparent = false
@@ -151,11 +151,11 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo", "Metallic" ]
 
-[sub_resource type="ConvexPolygonShape" id=9]
+[sub_resource type="ConvexPolygonShape" id=6]
 
 points = PoolVector3Array( 25, 0, 25, -25, 0, 25, 25, 0, -25, -25, 0, -25 )
 
-[sub_resource type="CubeMesh" id=10]
+[sub_resource type="CubeMesh" id=7]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector3( 2, 5, 50 )
@@ -163,15 +163,15 @@ subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
 
-[sub_resource type="ConvexPolygonShape" id=11]
+[sub_resource type="ConvexPolygonShape" id=8]
 
 points = PoolVector3Array( -1, 2.5, 25, 1, 2.5, -25, 1, 2.5, 25, -1, 2.5, -25, -1, -2.5, 25, 1, -2.5, -25, 1, -2.5, 25, -1, -2.5, -25, 1, 2.5, 25, -1, 2.5, -25, 1, 2.5, -25, -1, 2.5, 25, 1, -2.5, 25, -1, -2.5, -25, 1, -2.5, -25, -1, -2.5, 25, 1, 2.5, 25, -1, -2.5, 25, -1, 2.5, 25, 1, -2.5, 25, 1, 2.5, -25, -1, -2.5, -25, -1, 2.5, -25, 1, -2.5, -25 )
 
-[node name="Main_Scene" type="Spatial" index="0"]
+[node name="Main_Scene" type="Spatial"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
 
-environment = SubResource( 5 )
+environment = SubResource( 1 )
 
 [node name="Camera" type="Camera" parent="." index="1"]
 
@@ -218,14 +218,14 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="Player" index="1"]
 
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 disabled = false
 
 [node name="Floor" type="MeshInstance" parent="." index="3"]
@@ -239,9 +239,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 3 )
+mesh = SubResource( 4 )
 skeleton = NodePath("..")
-material/0 = SubResource( 4 )
+material/0 = SubResource( 5 )
 _sections_unfolded = [ "Transform", "material" ]
 
 [node name="StaticBody" type="StaticBody" parent="Floor" index="0"]
@@ -257,7 +257,7 @@ constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor/StaticBody" index="0"]
 
-shape = SubResource( 9 )
+shape = SubResource( 6 )
 disabled = false
 
 [node name="WallRigidBody" type="RigidBody" parent="." index="4"]
@@ -301,13 +301,13 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 10 )
+mesh = SubResource( 7 )
 skeleton = NodePath("..")
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="WallRigidBody" index="1"]
 
-shape = SubResource( 11 )
+shape = SubResource( 8 )
 disabled = false
 
 
