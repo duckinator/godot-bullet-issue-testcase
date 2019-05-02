@@ -5,15 +5,9 @@ extends RigidBody
 # var b = "textvar"
 
 var next_impulse = null
-var timer
 
 func _ready():
-	timer = Timer.new()
-	timer.one_shot = true
-	timer.wait_time = 10
-	timer.connect("timeout", self, "queue_free")
-	add_child(timer)
-	timer.start()
+	pass
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

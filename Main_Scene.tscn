@@ -167,7 +167,7 @@ subdivide_depth = 0
 
 points = PoolVector3Array( -1, 2.5, 25, 1, 2.5, -25, 1, 2.5, 25, -1, 2.5, -25, -1, -2.5, 25, 1, -2.5, -25, 1, -2.5, 25, -1, -2.5, -25, 1, 2.5, 25, -1, 2.5, -25, 1, 2.5, -25, -1, 2.5, 25, 1, -2.5, 25, -1, -2.5, -25, 1, -2.5, -25, -1, -2.5, 25, 1, 2.5, 25, -1, -2.5, 25, -1, 2.5, 25, 1, -2.5, 25, 1, 2.5, -25, -1, -2.5, -25, -1, 2.5, -25, 1, -2.5, -25 )
 
-[node name="Main_Scene" type="Spatial"]
+[node name="Main_Scene" type="Spatial" index="0"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
 
